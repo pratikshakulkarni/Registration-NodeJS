@@ -9,21 +9,23 @@
 </head>
 <body>
     <nav>
-        <h1>Node js app</h1>
+        <h1>My new home page</h1>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <form method="GET" action="/logout">
+            <li><button type="submit" class="btn btn-primary">Logout</li>
+            </form>
         </ul>
     </nav>
 
     <div class="container mt-4">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <h1 class="display-4">Hello, {{this.uname}}</h1>
+            <p class="lead">Welcome, this is your home page.</p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <p>You can delete your account using below button</p>
+            <form method="POST" action="/auth/deleteAccount">
+            <button class="btn btn-danger" type="submit">Delete Account</button>
+            </form>
         </div>
     </div>
 

@@ -59,7 +59,9 @@ exports.login = async (req,res) => {
                 message:`Email or password incorrect`
              })
             }else{
+    
                 const id = results[0].id
+                //const uname = 
 
                 const token = jwt.sign({id},process.env.JWT_SECRET,{
                     expiresIn: process.env.JWT_EXPIRES_IN
@@ -75,7 +77,9 @@ exports.login = async (req,res) => {
                 }
 
                 res.cookie('jwt',token,cookieOptions);
-                res.status(200).redirect("/");
+                res.status(200).render("home",{
+                    uname:results[0].first_name
+                });
             }
         });
         
@@ -83,4 +87,8 @@ exports.login = async (req,res) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+exports.deleteAccount = async(req,res) => {
+    
 }
